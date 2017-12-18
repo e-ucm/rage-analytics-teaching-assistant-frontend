@@ -1,0 +1,8 @@
+.idea/
+mongoDB
+node_modules/
+coverage/
+app/config-example.js
+app/public/bower
+app/public/games
+app/public/libs
