@@ -46,7 +46,7 @@ angular.module('toolbarApp', ['ngStorage', 'services', 'myApp'])
                 }
             }
 
-            $scope.$on('login', function () {npm
+            $scope.$on('login', function () {
                 $scope.games = Role.isDeveloper() ? Games.my() : Games.public();
             });
 
