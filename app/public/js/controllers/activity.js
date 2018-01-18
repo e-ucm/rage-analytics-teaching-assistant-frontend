@@ -62,40 +62,49 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                         searchSourceJSON: '{"index":"thomaskilmann-' + activityId + '","query":{"match_all":{}},"filter":[]}'
                     }
                 }, {
-                    title: 'NUMBER OF GAMES SHIPPED',
-                    visState: '{"title":"NUMBER OF GAMES SHIPPED","type":"badges-vis","params":{"imageUrl":"https://github.com/e-ucm/badges-vis/raw/master/images/badges/tick_green.png","text":"NUMBER OF GAMES SHIPPED","value":"0","division":false,"numeralFormat":"[{ \\\"numeralFormat\\\" : \\\"000\\\" }]","type":"badges-vis","useNumerator":false},"aggs":[{"id":"1","enabled":true,"type":"count","schema":"metric","params":{}},{"id":"2","enabled":true,"type":"filters","schema":"buckets","params":{"filters":[{"input":{"query":{"query_string":{"query":"out.ext.shippedGame:*"}}},"label":"\"}]}}],"listeners":{}}',
-                    uiStateJSON: '{"spy":{"mode":{"name":null,"fill":false}}}',
-                    description: '',
-                    version: 1,
-                    kibanaSavedObjectMeta: {
-                        searchSourceJSON: '{"index":"thomaskilmann-' + activityId + '","query":{"match_all":{}},"filter":[]}'
+                    "title": "AVERAGE OFFICE MORALE",
+                    "visState": "{\n  \"title\": \"AVERAGE OFFICE MORALE\",\n  \"type\": \"badges-vis\",\n  \"params\": {\n    \"division\": false,\n    \"imageUrl\": \"https://github.com/e-ucm/badges-vis/raw/master/images/badges/fire.png\",\n    \"numeralFormat\": \"[{ \\\"numeralFormat\\\" : \\\"%0,00\\\" }]\",\n    \"numerator\": true,\n    \"text\": \"AVERAGE OFFICE MORALE\",\n    \"type\": \"badges-vis\",\n    \"useNumerator\": false,\n    \"value\": \"0\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"avg\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"out.ext.officeMorale\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"filters\",\n      \"schema\": \"buckets\",\n      \"params\": {\n        \"filters\": [\n          {\n            \"input\": {\n              \"query\": {\n                \"query_string\": {\n                  \"query\": \"*\"\n                }\n              }\n            },\n            \"label\": \"\"\n          }\n        ]\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+                    "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"fill\": false,\n      \"name\": \"table\"\n    }\n  }\n}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\n  \"index\": \"thomaskilmann-5a60e9d1262efc00771f7ca1\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": []\n}"
+                    }
+                },{
+                    "title": "NUMBER OF GAMES SHIPPED",
+                    "visState": "{\"title\":\"NUMBER OF GAMES SHIPPED\",\"type\":\"badges-vis\",\"params\":{\"imageUrl\":\"https://github.com/e-ucm/badges-vis/raw/master/images/badges/tick_green.png\",\"text\":\"NUMBER OF GAMES SHIPPED\",\"value\":\"0\",\"division\":false,\"numeralFormat\":\"[{ \\\"numeralFormat\\\" : \\\"000\\\" }]\",\"type\":\"badges-vis\",\"useNumerator\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"buckets\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"out.ext.shippedGame:*\"}}},\"label\":\"\"}]}}],\"listeners\":{}}",
+                    "uiStateJSON": "{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }, {
-                    title: 'NUMBER OF AWARDS WON',
-                    visState: '{"title":"NUMBER OF AWARDS WON","type":"badges-vis","params":{"imageUrl":"https://github.com/e-ucm/badges-vis/raw/master/images/badges/trophy_acchievement.png","text":"NUMBER OF AWARDS WON","value":"0","division":false,"numeralFormat":"[{ \\\"numeralFormat\\\" : \\\"000\\\" }]","type":"badges-vis","useNumerator":false},"aggs":[{"id":"1","enabled":true,"type":"count","schema":"metric","params":{}},{"id":"2","enabled":true,"type":"filters","schema":"buckets","params":{"filters":[{"input":{"query":{"query_string":{"query":"out.ext.award:*"}}},"label":"\"}]}}],"listeners":{}}',
-                    uiStateJSON: '{"spy":{"mode":{"name":null,"fill":false}}}',
-                    description: '',
-                    version: 1,
-                    kibanaSavedObjectMeta: {
-                        searchSourceJSON: '{"index":"thomaskilmann-' + activityId + '","query":{"match_all":{}},"filter":[]}'
+                    "title": "NUMBER OF AWARDS WON",
+                    "visState": "{\"title\":\"NUMBER OF AWARDS WON\",\"type\":\"badges-vis\",\"params\":{\"imageUrl\":\"https://github.com/e-ucm/badges-vis/raw/master/images/badges/trophy_acchievement.png\",\"text\":\"NUMBER OF AWARDS WON\",\"value\":\"0\",\"division\":false,\"numeralFormat\":\"[{ \\\"numeralFormat\\\" : \\\"000\\\" }]\",\"type\":\"badges-vis\",\"useNumerator\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"buckets\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"out.ext.award:*\"}}},\"label\":\"\"}]}}],\"listeners\":{}}",
+                    "uiStateJSON": "{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }, {
-                    title: 'ThomasKilmann Classification',
-                    visState: '{"title":"ThomasKilmann Classification","type":"tkWidget","params":{"color1":"#1f77b4","color2":"#ff7f0e","color3":"#2ca02c","color4":"#d62728","color5":"#9467bd","legend_position":"right","type":"tkWidget"},"aggs":[{"id":"1","enabled":true,"type":"count","schema":"metric","params":{}},{"id":"2","enabled":true,"type":"terms","schema":"buckets","params":{"field":"out.ext.thomasKilmann.keyword","size":5,"order":"desc","orderBy":"1"}}],"listeners":{}}',
-                    uiStateJSON: '{"spy":{"mode":{"name":null,"fill":false}}}',
-                    description: '',
-                    version: 1,
-                    kibanaSavedObjectMeta: {
-                        searchSourceJSON: '{"index":"thomaskilmann-' + activityId + '","query":{"match_all":{}},"filter":[]}'
+                    "title": "ThomasKilmann Classification",
+                    "visState": "{\"title\":\"ThomasKilmann Classification\",\"type\":\"tkWidget\",\"params\":{\"color1\":\"#1f77b4\",\"color2\":\"#ff7f0e\",\"color3\":\"#2ca02c\",\"color4\":\"#d62728\",\"color5\":\"#9467bd\",\"legend_position\":\"right\",\"type\":\"tkWidget\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"buckets\",\"params\":{\"field\":\"out.ext.thomasKilmann.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+                    "uiStateJSON": "{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }, {
-                    title: 'ThomasKilmann Piechart',
-                    visState: '{"title":"ThomasKilmann Piechart","type":"pie","params":{"addTooltip":true,"addLegend":true,"legendPosition":"right","isDonut":false,"type":"pie"},"aggs":[{"id":"1","enabled":true,"type":"count","schema":"metric","params":{}},{"id":"2","enabled":true,"type":"terms","schema":"segment","params":{"field":"out.ext.thomasKilmann.keyword","size":5,"order":"desc","orderBy":"1"}}],"listeners":{}}',
-                    uiStateJSON: '{}',
-                    description: '',
-                    version: 1,
-                    kibanaSavedObjectMeta: {
-                        searchSourceJSON: '{"index":"thomaskilmann-' + activityId + '","query":{"match_all":{}},"filter":[]}'
+                    "title": "ThomasKilmann Piechart",
+                    "visState": "{\"title\":\"ThomasKilmann Piechart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"out.ext.thomasKilmann.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+                    "uiStateJSON": "{}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }, {
                     title: 'DESCRIPTION',
@@ -107,22 +116,22 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                         searchSourceJSON: '{"query":{"match_all":{}},"filter":[]}'
                     }
                 }, {
-                    title: 'Biases Percentage',
-                    visState: '{"title":"Biases Percentage","type":"histogram","params":{"grid":{"categoryLines":false,"style":{"color":"#eee"}},"categoryAxes":[{"id":"CategoryAxis-1","type":"category","position":"bottom","show":true,"style":{},"scale":{"type":"linear"},"labels":{"show":true,"truncate":100},"title":{"text":"bias_type.keyword: Descending"}}],"valueAxes":[{"id":"ValueAxis-1","name":"LeftAxis-1","type":"value","position":"left","show":true,"style":{},"scale":{"type":"linear","mode":"normal"},"labels":{"show":true,"rotate":0,"filter":false,"truncate":100},"title":{"text":"Count"}}],"seriesParams":[{"show":"true","type":"histogram","mode":"stacked","data":{"label":"Count","id":"1"},"valueAxis":"ValueAxis-1","drawLinesBetweenPoints":true,"showCircles":true}],"addTooltip":true,"addLegend":true,"legendPosition":"right","times":[],"addTimeMarker":false,"type":"histogram"},"aggs":[{"id":"1","enabled":true,"type":"count","schema":"metric","params":{}},{"id":"2","enabled":true,"type":"terms","schema":"segment","params":{"field":"bias_type.keyword","size":5,"order":"desc","orderBy":"1"}},{"id":"3","enabled":true,"type":"filters","schema":"group","params":{"filters":[{"input":{"query":{"query_string":{"query":"bias_value_false:1"}}},"label":"False"},{"input":{"query":{"query_string":{"query":"bias_value_true:1"}}},"label":".True"}]}}],"listeners":{}}',
-                    uiStateJSON: '{}',
-                    description: '',
-                    version: 1,
-                    kibanaSavedObjectMeta: {
-                        searchSourceJSON: '{"index":"thomaskilmann-' + activityId + '","query":{"match_all":{}},"filter":[]}'
+                    "title": "Biases Percentage",
+                    "visState": "{\"title\":\"Biases Percentage\",\"type\":\"histogram\",\"params\":{\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{\"text\":\"bias_type.keyword: Descending\"}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Count\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Count\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"type\":\"histogram\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"bias_type.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"bias_value_false:1\"}}},\"label\":\"False\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"bias_value_true:1\"}}},\"label\":\".True\"}]}}],\"listeners\":{}}",
+                    "uiStateJSON": "{}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }, {
-                    title: 'Thomas Kilmann Over Time!',
-                    visState: '{"title":"Thomas Kilmann Over Time!","type":"prelert_swimlane","params":{"interval":{"display":"Auto","val":"auto"},"lowThreshold":0,"warningThreshold":1,"minorThreshold":2,"majorThreshold":3,"criticalThreshold":4,"lowThresholdColor":"#d2e9f7","warningThresholdColor":"#8bc8fb","minorThresholdColor":"#ffdd00","majorThresholdColor":"#ff7e00","criticalThresholdColor":"#fe5050","tooltipNumberFormat":"0.0","showLegend":true,"alphabetSortLaneLabels":"off","type":"prelert_swimlane"},"aggs":[{"id":"1","enabled":true,"type":"max","schema":"metric","params":{"field":"tkscripted"}},{"id":"2","enabled":true,"type":"terms","schema":"viewBy","params":{"field":"out.ext.thomasKilmann.keyword","size":10,"order":"desc","orderBy":"1"}},{"id":"3","enabled":true,"type":"date_histogram","schema":"timeSplit","params":{"field":"out.timestamp","interval":"auto","customInterval":"2h","min_doc_count":1,"extended_bounds":{}}}],"listeners":{}}',
-                    uiStateJSON: '{}',
-                    description: '',
-                    version: 1,
-                    kibanaSavedObjectMeta: {
-                        searchSourceJSON: '{"index":"thomaskilmann-' + activityId + '","query":{"match_all":{}},"filter":[]}'
+                    "title": "Thomas Kilmann Over Time!",
+                    "visState": "{\"title\":\"Thomas Kilmann Over Time!\",\"type\":\"prelert_swimlane\",\"params\":{\"alphabetSortLaneLabels\":\"off\",\"criticalThreshold\":4,\"criticalThresholdColor\":\"#fe5050\",\"interval\":{\"description\":\"30 seconds\",\"display\":\"Auto\",\"val\":\"auto\"},\"lowThreshold\":0,\"lowThresholdColor\":\"#d2e9f7\",\"majorThreshold\":3,\"majorThresholdColor\":\"#ff7e00\",\"minorThreshold\":2,\"minorThresholdColor\":\"#ffdd00\",\"showLegend\":true,\"tooltipNumberFormat\":\"0.0\",\"type\":\"prelert_swimlane\",\"warningThreshold\":1,\"warningThresholdColor\":\"#8bc8fb\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"tkscripted\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"viewBy\",\"params\":{\"field\":\"out.ext.thomasKilmann.keyword\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"TK\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"timeSplit\",\"params\":{\"field\":\"out.timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+                    "uiStateJSON": "{}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-5a60e9d1262efc00771f7ca1\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }];
 
