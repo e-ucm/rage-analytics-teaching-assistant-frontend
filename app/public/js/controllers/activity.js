@@ -52,23 +52,14 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                     'AWAmxuffaTSz3ztgr4jn' + activityId,
                     'AWAnB_mZaTSz3ztgr87N' + activityId];
 
-                var visualizations = [{
-                    title: 'AVERAGE OFFICE MORALE',
-                    visState: '{"title":"AVERAGE OFFICE MORALE","type":"badges-vis","params":{"division":false,"imageUrl":"https://github.com/e-ucm/badges-vis/raw/master/images/badges/fire.png","numeralFormat":"[{ \\\"numeralFormat\\\" : \\\"%0,00\\\" }]","numerator":true,"text":"AVERAGE OFFICE MORALE","type":"badges-vis","useNumerator":false,"value":"0"},"aggs":[{"id":"1","enabled":true,"type":"avg","schema":"metric","params":{"field":"out.ext.officeMorale"}},{"id":"2","enabled":true,"type":"filters","schema":"buckets","params":{"filters":[{"input":{"query":{"query_string":{"query":"*"}}},"label":"\"}]}}],"listeners":{}}',
-                    uiStateJSON: '{"spy":{"mode":{"fill":false,"name":"table"}}}',
-                    description: '',
-                    version: 1,
-                    kibanaSavedObjectMeta: {
-                        searchSourceJSON: '{"index":"thomaskilmann-' + activityId + '","query":{"match_all":{}},"filter":[]}'
-                    }
-                }, {
+                var visualizations = [ {
                     "title": "AVERAGE OFFICE MORALE",
                     "visState": "{\n  \"title\": \"AVERAGE OFFICE MORALE\",\n  \"type\": \"badges-vis\",\n  \"params\": {\n    \"division\": false,\n    \"imageUrl\": \"https://github.com/e-ucm/badges-vis/raw/master/images/badges/fire.png\",\n    \"numeralFormat\": \"[{ \\\"numeralFormat\\\" : \\\"%0,00\\\" }]\",\n    \"numerator\": true,\n    \"text\": \"AVERAGE OFFICE MORALE\",\n    \"type\": \"badges-vis\",\n    \"useNumerator\": false,\n    \"value\": \"0\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"avg\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"out.ext.officeMorale\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"filters\",\n      \"schema\": \"buckets\",\n      \"params\": {\n        \"filters\": [\n          {\n            \"input\": {\n              \"query\": {\n                \"query_string\": {\n                  \"query\": \"*\"\n                }\n              }\n            },\n            \"label\": \"\"\n          }\n        ]\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
                     "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"fill\": false,\n      \"name\": \"table\"\n    }\n  }\n}",
                     "description": "",
                     "version": 1,
                     "kibanaSavedObjectMeta": {
-                        "searchSourceJSON": "{\n  \"index\": \"thomaskilmann-5a60e9d1262efc00771f7ca1\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": []\n}"
+                        "searchSourceJSON": "{\n  \"index\": \"thomaskilmann-" + activityId + "\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": []\n}"
                     }
                 },{
                     "title": "NUMBER OF GAMES SHIPPED",
@@ -131,7 +122,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                     "description": "",
                     "version": 1,
                     "kibanaSavedObjectMeta": {
-                        "searchSourceJSON": "{\"index\":\"thomaskilmann-5a60e9d1262efc00771f7ca1\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }];
 
@@ -144,13 +135,14 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                     optionsJSON: '{"darkTheme":false}',
                     uiStateJSON: '{"P-1":{"spy":{"mode":{"fill":false,"name":null}}},"P-5":{"spy":{"mode":{"fill":false,"name":null}},"vis":{"legendOpen":true}}}',
                     version: 1,
-                    timeRestore: true,
-                    timeTo: 'Tue Feb 14 2017 09:37:43 GMT+0100',
-                    timeFrom: 'Tue Feb 14 2017 09:23:41 GMT+0100',
-                    refreshInterval: {
-                        display: 'Off',
-                        pause: false,
-                        value: 0
+                    "timeRestore": true,
+                    "timeTo": "now",
+                    "timeFrom": "now-5y",
+                    "refreshInterval": {
+                        "display": "5 seconds",
+                        "pause": false,
+                        "section": 1,
+                        "value": 5000
                     },
                     kibanaSavedObjectMeta: {
                         searchSourceJSON: '{"filter":[{"query":{"match_all":{}}}],"highlightAll":true,"version":true}'
