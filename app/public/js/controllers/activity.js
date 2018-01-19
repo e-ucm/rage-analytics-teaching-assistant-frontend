@@ -50,25 +50,26 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                     'AWAiUExdUurT9k2FEVYN' + activityId,
                     'AWAmorJcaTSz3ztgr2Ha' + activityId,
                     'AWAmxuffaTSz3ztgr4jn' + activityId,
-                    'AWAnB_mZaTSz3ztgr87N' + activityId];
+                    'AWAnB_mZaTSz3ztgr87N' + activityId,
+                    'AWEO4STKRfimALS9Wfot' + activityId];
 
-                var visualizations = [ {
+                var visualizations = [{
                     "title": "AVERAGE OFFICE MORALE",
                     "visState": "{\n  \"title\": \"AVERAGE OFFICE MORALE\",\n  \"type\": \"badges-vis\",\n  \"params\": {\n    \"division\": false,\n    \"imageUrl\": \"https://github.com/e-ucm/badges-vis/raw/master/images/badges/fire.png\",\n    \"numeralFormat\": \"[{ \\\"numeralFormat\\\" : \\\"%0,00\\\" }]\",\n    \"numerator\": true,\n    \"text\": \"AVERAGE OFFICE MORALE\",\n    \"type\": \"badges-vis\",\n    \"useNumerator\": false,\n    \"value\": \"0\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"avg\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"out.ext.officeMorale\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"filters\",\n      \"schema\": \"buckets\",\n      \"params\": {\n        \"filters\": [\n          {\n            \"input\": {\n              \"query\": {\n                \"query_string\": {\n                  \"query\": \"*\"\n                }\n              }\n            },\n            \"label\": \"\"\n          }\n        ]\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
                     "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"fill\": false,\n      \"name\": \"table\"\n    }\n  }\n}",
                     "description": "",
                     "version": 1,
                     "kibanaSavedObjectMeta": {
-                        "searchSourceJSON": "{\n  \"index\": \"thomaskilmann-" + activityId + "\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": []\n}"
+                        "searchSourceJSON": "{\n  \"index\": \"" + activityId + "\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": []\n}"
                     }
-                },{
+                }, {
                     "title": "NUMBER OF GAMES SHIPPED",
                     "visState": "{\"title\":\"NUMBER OF GAMES SHIPPED\",\"type\":\"badges-vis\",\"params\":{\"imageUrl\":\"https://github.com/e-ucm/badges-vis/raw/master/images/badges/tick_green.png\",\"text\":\"NUMBER OF GAMES SHIPPED\",\"value\":\"0\",\"division\":false,\"numeralFormat\":\"[{ \\\"numeralFormat\\\" : \\\"000\\\" }]\",\"type\":\"badges-vis\",\"useNumerator\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"buckets\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"out.ext.shippedGame:*\"}}},\"label\":\"\"}]}}],\"listeners\":{}}",
                     "uiStateJSON": "{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
                     "description": "",
                     "version": 1,
                     "kibanaSavedObjectMeta": {
-                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                        "searchSourceJSON": "{\"index\":\"" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }, {
                     "title": "NUMBER OF AWARDS WON",
@@ -77,7 +78,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                     "description": "",
                     "version": 1,
                     "kibanaSavedObjectMeta": {
-                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                        "searchSourceJSON": "{\"index\":\"" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }, {
                     "title": "ThomasKilmann Classification",
@@ -95,7 +96,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                     "description": "",
                     "version": 1,
                     "kibanaSavedObjectMeta": {
-                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                        "searchSourceJSON": "{\"index\":\"" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
                 }, {
                     title: 'DESCRIPTION',
@@ -124,6 +125,15 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                     "kibanaSavedObjectMeta": {
                         "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
                     }
+                }, {
+                    "title": "TimePickerHull",
+                    "visState": "{\"title\":\"TimePickerHull\",\"type\":\"time\",\"params\":{\"enable_quick\":true,\"enable_relative\":true,\"enable_absolut\":true,\"enable_animation\":true,\"type\":\"time\"},\"aggs\":[],\"listeners\":{}}",
+                    "uiStateJSON": "{}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"query\":{\"match_all\":{}},\"filter\":[]}"
+                    }
                 }];
 
                 // DASHBOARD
@@ -131,13 +141,21 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                     title: 'Hulldashboard_' + activityId,
                     hits: 0,
                     description: '',
-                    panelsJSON: '[{"col":1,"id":"' + viauslizationIds[0] + '","panelIndex":1,"row":6,"size_x":5,"size_y":1,"type":"visualization"},{"col":1,"id":"' + viauslizationIds[1] + '","panelIndex":2,"row":4,"size_x":5,"size_y":1,"type":"visualization"},{"col":1,"id":"' + viauslizationIds[2] + '","panelIndex":3,"row":5,"size_x":5,"size_y":1,"type":"visualization"},{"col":1,"id":"' + viauslizationIds[3] + '","panelIndex":4,"row":7,"size_x":5,"size_y":3,"type":"visualization"},{"col":1,"id":"' + viauslizationIds[4] + '","panelIndex":5,"row":10,"size_x":5,"size_y":3,"type":"visualization"},{"col":6,"id":"' + viauslizationIds[5] + '","panelIndex":6,"row":4,"size_x":7,"size_y":13,"type":"visualization"},{"col":1,"id":"' + viauslizationIds[6] + '","panelIndex":7,"row":13,"size_x":5,"size_y":4,"type":"visualization"},{"col":1,"id":"' + viauslizationIds[7] + '","panelIndex":8,"row":1,"size_x":12,"size_y":3,"type":"visualization"}]',
+                    panelsJSON: '[{"col":1,"id":"' + viauslizationIds[0] + '","panelIndex":1,"row":6,"size_x":5,"size_y":1,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[1] + '","panelIndex":2,"row":4,"size_x":5,"size_y":1,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[2] + '","panelIndex":3,"row":5,"size_x":5,"size_y":1,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[3] + '","panelIndex":4,"row":7,"size_x":5,"size_y":3,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[4] + '","panelIndex":5,"row":10,"size_x":3,"size_y":3,"type":"visualization"},' +
+                    '{"col":6,"id":"' + viauslizationIds[5] + '","panelIndex":6,"row":4,"size_x":7,"size_y":13,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[6] + '","panelIndex":7,"row":13,"size_x":5,"size_y":4,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[7] + '","panelIndex":8,"row":1,"size_x":12,"size_y":3,"type":"visualization"},' +
+                    '{"size_x":2,"size_y":3,"panelIndex":9,"type":"visualization","id":"' + viauslizationIds[8] + '","col":4,"row":10}]',
                     optionsJSON: '{"darkTheme":false}',
-                    uiStateJSON: '{"P-1":{"spy":{"mode":{"fill":false,"name":null}}},"P-5":{"spy":{"mode":{"fill":false,"name":null}},"vis":{"legendOpen":true}}}',
+                    "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-5\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}},\"vis\":{\"legendOpen\":true}}}",
                     version: 1,
                     "timeRestore": true,
                     "timeTo": "now",
-                    "timeFrom": "now-5y",
+                    "timeFrom": "now-30d",
                     "refreshInterval": {
                         "display": "5 seconds",
                         "pause": false,
@@ -235,10 +253,10 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                 }
 
                 if (userName) {
-                    url += '&_a=(filters:!(),options:(darkTheme:!f),query:(query_string:(analyze_wildcard:!t,query:\'name:' +
+                    url += '&_a=(filters:!(),options:(darkTheme:!f),query:(query_string:(analyze_wildcard:!t,query:\'out.name:' +
                         userName + '\')))';
                 } else if ($scope.player) {
-                    url += '&_a=(filters:!(),options:(darkTheme:!f),query:(query_string:(analyze_wildcard:!t,query:\'name:' +
+                    url += '&_a=(filters:!(),options:(darkTheme:!f),query:(query_string:(analyze_wildcard:!t,query:\'out.name:' +
                         $scope.player.name + '\')))';
                 }
 
