@@ -19,7 +19,7 @@
 'use strict';
 
 angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
-    .factory('_', ['$window', function($window) {
+    .factory('_', ['$window', function ($window) {
         return $window._;
     }])
     .config(['$locationProvider',
@@ -37,8 +37,153 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
         'Results', 'Versions', '$sce', '$interval', 'CONSTANTS',
         function ($rootScope, $scope, $attrs, $location, $http, Activities, Classes, _, Results, Versions, $sce, $interval, CONSTANTS) {
 
+            var init = function () {
+                var activityId = $attrs.activityid;
+
+                //jscs:disable requireSpaceAfterLineComment
+                //jscs:disable maximumLineLength
+
+                var viauslizationIds = ['AWASvrqw859DaphyNpzt' + activityId,
+                    'AWASNOIN859DaphyNiF1' + activityId,
+                    'AWASMtve859DaphyNh-t' + activityId,
+                    'AWAiTWooUurT9k2FEVMn' + activityId,
+                    'AWAiUExdUurT9k2FEVYN' + activityId,
+                    'AWAmorJcaTSz3ztgr2Ha' + activityId,
+                    'AWAmxuffaTSz3ztgr4jn' + activityId,
+                    'AWAnB_mZaTSz3ztgr87N' + activityId,
+                    'AWEO4STKRfimALS9Wfot' + activityId];
+
+                var visualizations = [{
+                    "title": "AVERAGE OFFICE MORALE",
+                    "visState": "{\n  \"title\": \"AVERAGE OFFICE MORALE\",\n  \"type\": \"badges-vis\",\n  \"params\": {\n    \"division\": false,\n    \"imageUrl\": \"https://github.com/e-ucm/badges-vis/raw/master/images/badges/fire.png\",\n    \"numeralFormat\": \"[{ \\\"numeralFormat\\\" : \\\"%0,00\\\" }]\",\n    \"numerator\": true,\n    \"text\": \"AVERAGE OFFICE MORALE\",\n    \"type\": \"badges-vis\",\n    \"useNumerator\": false,\n    \"value\": \"0\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"avg\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"out.ext.officeMorale\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"filters\",\n      \"schema\": \"buckets\",\n      \"params\": {\n        \"filters\": [\n          {\n            \"input\": {\n              \"query\": {\n                \"query_string\": {\n                  \"query\": \"*\"\n                }\n              }\n            },\n            \"label\": \"\"\n          }\n        ]\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+                    "uiStateJSON": "{\n  \"spy\": {\n    \"mode\": {\n      \"fill\": false,\n      \"name\": \"table\"\n    }\n  }\n}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\n  \"index\": \"" + activityId + "\",\n  \"query\": {\n    \"match_all\": {}\n  },\n  \"filter\": []\n}"
+                    }
+                }, {
+                    "title": "NUMBER OF GAMES SHIPPED",
+                    "visState": "{\"title\":\"NUMBER OF GAMES SHIPPED\",\"type\":\"badges-vis\",\"params\":{\"imageUrl\":\"https://github.com/e-ucm/badges-vis/raw/master/images/badges/tick_green.png\",\"text\":\"NUMBER OF GAMES SHIPPED\",\"value\":\"0\",\"division\":false,\"numeralFormat\":\"[{ \\\"numeralFormat\\\" : \\\"000\\\" }]\",\"type\":\"badges-vis\",\"useNumerator\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"buckets\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"out.ext.shippedGame:*\"}}},\"label\":\"\"}]}}],\"listeners\":{}}",
+                    "uiStateJSON": "{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                    }
+                }, {
+                    "title": "NUMBER OF AWARDS WON",
+                    "visState": "{\"title\":\"NUMBER OF AWARDS WON\",\"type\":\"badges-vis\",\"params\":{\"imageUrl\":\"https://github.com/e-ucm/badges-vis/raw/master/images/badges/trophy_acchievement.png\",\"text\":\"NUMBER OF AWARDS WON\",\"value\":\"0\",\"division\":false,\"numeralFormat\":\"[{ \\\"numeralFormat\\\" : \\\"000\\\" }]\",\"type\":\"badges-vis\",\"useNumerator\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"buckets\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"out.ext.award:*\"}}},\"label\":\"\"}]}}],\"listeners\":{}}",
+                    "uiStateJSON": "{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                    }
+                }, {
+                    "title": "ThomasKilmann Classification",
+                    "visState": "{\"title\":\"ThomasKilmann Classification\",\"type\":\"tkWidget\",\"params\":{\"color1\":\"#1f77b4\",\"color2\":\"#ff7f0e\",\"color3\":\"#2ca02c\",\"color4\":\"#d62728\",\"color5\":\"#9467bd\",\"legend_position\":\"right\",\"type\":\"tkWidget\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"buckets\",\"params\":{\"field\":\"out.ext.thomasKilmann.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+                    "uiStateJSON": "{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                    }
+                }, {
+                    "title": "ThomasKilmann Piechart",
+                    "visState": "{\"title\":\"ThomasKilmann Piechart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"out.ext.thomasKilmann.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+                    "uiStateJSON": "{}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                    }
+                }, {
+                    title: 'DESCRIPTION',
+                    visState: '{"title":"DESCRIPTION","type":"markdown","params":{"type":"markdown","markdown":"# Et aequent vestem bracchiaque ante inrita hic\\n\\n## Quae deum vultum Dardanio luminis vestigia\\n\\nLorem markdownum locum unguibus *virum*. Potest indigenis Cyllare illis accepta\\nutque, est et fulgebant vocat, cur mota cur; malum. Erit inquit, addere? Pondera\\nalas pater de conparentis plenos, et Icare, [fide](http://arsuris-senis.org/).\\n\\n> Nec viva squamis tecta, aures fiducia nigrescere mittere at amens ille alasque\\n> **saepe**, dent animam currus Turno? Coniunx cape. Eburnea eandem cura patris:\\n> et deserit inposito traxere figurae, terrae corpus. Dapibus arvum vigili\\n> **Iuppiter** aegro paulumque cura?\\n\\n## Plerumque albentia defendit vetat Rhodopen laetabere et\\n\\nLibratus modo his ver paratibus ego per flentes succeditis aetas. Nunc nulli\\nfessusque et tibi, mihi repperit ope membra eburnea sua\\n[orandus](http://uno-tegitur.io/quam). Illic manibus, tu neque ursaque, intus.\\nNate exemplum?\\n\\n    var video_autoresponder = snapshot(bitSoap, remote_target_cloud) +\\n            smtp_gpu_frame(bookmark_pitch_encryption, 990982) / outbox(samba,\\n            flash(ipv_data_smb, repeater), sound_recycle_trim -\\n            lteVirusMnemonic);\\n    var constant_dual = paste_flash_window(user, soap_cluster_server(\\n            disk_menu));\\n    if (backsideComputerMaster) {\\n        serialBig += -3;\\n        jsf_minimize(1, whiteMenuFlaming, graphicsPcb);\\n        interface(-2 / 1);\\n    }\\n    if (truncateSd / cyberspace > addressGpsOffline.software(3, dbmsPointLamp,\\n            sramCtp)) {\\n        reciprocal_rpc_linux.cycle(sprite(76, 5), vector, signature);\\n        cdn_internet_pixel.networking_character *= siteBluLag;\\n    } else {\\n        ajaxBoot = paste_google_disk(ramHalfNull * station, table + olap_point,\\n                user + adc);\\n    }\\n\\nHerbas nec quoque, venit spectent **potuisset Argolicas** incumbens utinam,\\nconclamat miserata ilice dubites propulit. Ab nequeo caelicolae Erycina currus,\\nmalo dea primae bucina gradibus, Troiae Nabataeus. Fortuna umquam semina\\nconlaudat coniunx et contra deae Priamo prosilit filia: ordine forti, nunc,\\nvirgo!\\n\\n## Adiecerit animalia\\n\\nCastra creatum, accedat, tale quo glaebam: partu ut sim circumspice\\n[tamen](http://fores.net/pugnaemihi). Per invitum animata et illis cernitis\\nPirithoi rapite fluctus; **non adest** fecit multa furta? Vale muneris: ego\\nCoronida mansit!\\n\\n1. Umbras quam duorum\\n2. Iterum fratrem temptat ferula\\n3. Viris in quodsi formam ipsos tange rogari\\n\\nDuo **esse ubi aprum**! Una [motaque dixere](http://molitorlacus.io/carens),\\nOetaeus musco animus contrahitur pascua, simulacraque plura mea est collo\\nnatorum in.\\n\\n**Fallit postquam** molles mirabatur et remos cupiunt premebat [celebrare\\nutraque](http://seque.io/sinistra) lingua post. Profanus attonitos Tereu, vestes\\ntauri solidum validum quisquis victa, Peleusque in ille. Videtur **decrescunt\\ncrura** Tirynthius ripa auxiliaria sentit spectare fuerat, Ciconumque."},"aggs":[],"listeners":{}}',
+                    uiStateJSON: '{}',
+                    description: '',
+                    version: 1,
+                    kibanaSavedObjectMeta: {
+                        searchSourceJSON: '{"query":{"match_all":{}},"filter":[]}'
+                    }
+                }, {
+                    "title": "Biases Percentage",
+                    "visState": "{\"title\":\"Biases Percentage\",\"type\":\"histogram\",\"params\":{\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{\"text\":\"bias_type.keyword: Descending\"}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Count\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Count\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"type\":\"histogram\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"bias_type.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"bias_value_false:1\"}}},\"label\":\"False\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"bias_value_true:1\"}}},\"label\":\".True\"}]}}],\"listeners\":{}}",
+                    "uiStateJSON": "{}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                    }
+                }, {
+                    "title": "Thomas Kilmann Over Time!",
+                    "visState": "{\"title\":\"Thomas Kilmann Over Time!\",\"type\":\"prelert_swimlane\",\"params\":{\"alphabetSortLaneLabels\":\"off\",\"criticalThreshold\":4,\"criticalThresholdColor\":\"#fe5050\",\"interval\":{\"description\":\"30 seconds\",\"display\":\"Auto\",\"val\":\"auto\"},\"lowThreshold\":0,\"lowThresholdColor\":\"#d2e9f7\",\"majorThreshold\":3,\"majorThresholdColor\":\"#ff7e00\",\"minorThreshold\":2,\"minorThresholdColor\":\"#ffdd00\",\"showLegend\":true,\"tooltipNumberFormat\":\"0.0\",\"type\":\"prelert_swimlane\",\"warningThreshold\":1,\"warningThresholdColor\":\"#8bc8fb\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"tkscripted\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"viewBy\",\"params\":{\"field\":\"out.ext.thomasKilmann.keyword\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"TK\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"timeSplit\",\"params\":{\"field\":\"out.timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+                    "uiStateJSON": "{}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"thomaskilmann-" + activityId + "\",\"query\":{\"match_all\":{}},\"filter\":[]}"
+                    }
+                }, {
+                    "title": "TimePickerHull",
+                    "visState": "{\"title\":\"TimePickerHull\",\"type\":\"time\",\"params\":{\"enable_quick\":true,\"enable_relative\":true,\"enable_absolut\":true,\"enable_animation\":true,\"type\":\"time\"},\"aggs\":[],\"listeners\":{}}",
+                    "uiStateJSON": "{}",
+                    "description": "",
+                    "version": 1,
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"query\":{\"match_all\":{}},\"filter\":[]}"
+                    }
+                }];
+
+                // DASHBOARD
+                var dashboard = {
+                    title: 'Hulldashboard_' + activityId,
+                    hits: 0,
+                    description: '',
+                    panelsJSON: '[{"col":1,"id":"' + viauslizationIds[0] + '","panelIndex":1,"row":6,"size_x":5,"size_y":1,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[1] + '","panelIndex":2,"row":4,"size_x":5,"size_y":1,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[2] + '","panelIndex":3,"row":5,"size_x":5,"size_y":1,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[3] + '","panelIndex":4,"row":7,"size_x":5,"size_y":3,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[4] + '","panelIndex":5,"row":10,"size_x":3,"size_y":3,"type":"visualization"},' +
+                    '{"col":6,"id":"' + viauslizationIds[5] + '","panelIndex":6,"row":4,"size_x":7,"size_y":13,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[6] + '","panelIndex":7,"row":13,"size_x":5,"size_y":4,"type":"visualization"},' +
+                    '{"col":1,"id":"' + viauslizationIds[7] + '","panelIndex":8,"row":1,"size_x":12,"size_y":3,"type":"visualization"},' +
+                    '{"size_x":2,"size_y":3,"panelIndex":9,"type":"visualization","id":"' + viauslizationIds[8] + '","col":4,"row":10}]',
+                    optionsJSON: '{"darkTheme":false}',
+                    "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-5\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}},\"vis\":{\"legendOpen\":true}}}",
+                    version: 1,
+                    "timeRestore": true,
+                    "timeTo": "now",
+                    "timeFrom": "now-30d",
+                    "refreshInterval": {
+                        "display": "5 seconds",
+                        "pause": false,
+                        "section": 1,
+                        "value": 5000
+                    },
+                    kibanaSavedObjectMeta: {
+                        searchSourceJSON: '{"filter":[{"query":{"match_all":{}}}],"highlightAll":true,"version":true}'
+                    }
+                };
+
+                //jscs:enable maximumLineLength
+
+                $http.post(CONSTANTS.PROXY + '/kibana/hulldata/' + activityId, {
+                    dashboard: dashboard,
+                    visualizations: visualizations,
+                    visualizationsIds: viauslizationIds
+                })
+                    .success(function (data) {
+                        console.log('Finished creating dashboard!');
+                    }).error(function (data, status) {
+                    console.error('Error on post /kibana/hulldata/' + activityId + ' ' +
+                        JSON.stringify(data) + ', status: ' + status);
+                });
+            };
+
             var refresh;
-            var onSetActivity = function() {
+            var onSetActivity = function () {
                 $scope.refreshResults = function () {
                     var rawResults = Results.query({
                             id: $scope.activity._id
@@ -66,19 +211,20 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                 }
             };
 
-            $scope.$on('$destroy', function() {
+            $scope.$on('$destroy', function () {
                 if (refresh) {
                     $interval.cancel(refresh);
                 }
             });
 
-            $attrs.$observe('activityid', function() {
+            $attrs.$observe('activityid', function () {
                 $scope.activity = Activities.get({activityId: $attrs.activityid}, onSetActivity);
+                init();
             });
 
-            $attrs.$observe('activity', function() {
+            $attrs.$observe('activity', function () {
                 $scope.activity = JSON.parse($attrs.activity);
-                Activities.get({activityId: $scope.activity._id}).$promise.then(function(a) {
+                Activities.get({activityId: $scope.activity._id}).$promise.then(function (a) {
                     $scope.activity = a;
                 });
 
@@ -99,7 +245,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
 
 
             var dashboardLink = function (userName) {
-                var url = CONSTANTS.KIBANA + '/app/kibana#/dashboard/dashboard_' +
+                var url = CONSTANTS.KIBANA + '/app/kibana#/dashboard/dashboard_tk_' +
                     $scope.activity._id + '?embed=true_g=(refreshInterval:(display:\'5%20seconds\',' +
                     'pause:!f,section:1,value:5000),time:(from:now-1h,mode:quick,to:now))';
                 if (url.startsWith('localhost')) {
@@ -191,7 +337,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
             $scope.inviteTeacher = function () {
                 if ($scope.teacher.name && $scope.teacher.name.trim() !== '') {
                     $scope.activity.teachers.push($scope.teacher.name);
-                    $scope.activity.$update(function() {
+                    $scope.activity.$update(function () {
                         $scope.teacher.name = '';
                     });
                 }
@@ -234,7 +380,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
             };
 
             $scope.updateActivityToClass = function () {
-                Classes.get({classId: $scope.activity.classId}).$promise.then(function(c) {
+                Classes.get({classId: $scope.activity.classId}).$promise.then(function (c) {
                     angular.extend($scope.activity.students, c.students);
                     $scope.activity.$update();
                 });
@@ -242,11 +388,11 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
 
             $scope.resetActivityToClass = function () {
 
-                Classes.get({classId: $scope.activity.classId}).$promise.then(function(c) {
+                Classes.get({classId: $scope.activity.classId}).$promise.then(function (c) {
 
                     var toRemove = _.difference($scope.activity.students, c.students);
                     $scope.activity.students = _.intersection($scope.activity.students, c.students);
-                    var then = function() {
+                    var then = function () {
                         angular.extend($scope.activity.students, c.students);
                         $scope.activity.$update();
                     };
@@ -290,7 +436,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
             // Name
 
             $scope.changeActivityName = function () {
-                $scope.activity.$update(function() {
+                $scope.activity.$update(function () {
                     $rootScope.$broadcast('refreshClasses');
                 });
             };
@@ -314,7 +460,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                 return $scope.activity.start && !$scope.activity.end ? 2 : 0;
             };
 
-            $scope.$on('refreshActivity', function(evt, activity) {
+            $scope.$on('refreshActivity', function (evt, activity) {
                 $scope.activity = activity;
                 console.log('Activity updated');
             });
@@ -336,7 +482,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
 
                     $.notify('<strong>Error while opening the activity:</strong><br>If the session was recently closed it ' +
                         'might need to be cleaned by the system. <br>Please try again in a few seconds.', {
-                        offset: { x: 10, y: 65 },
+                        offset: {x: 10, y: 65},
                         type: 'danger'// jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
                     });
 
@@ -361,7 +507,7 @@ angular.module('activityApp', ['myApp', 'ngStorage', 'services'])
                         JSON.stringify(data) + ', status: ' + status);
 
                     $.notify('<strong>Error while closing the activity:</strong><br>Please try again in a few seconds.', {
-                        offset: { x: 10, y: 65 },
+                        offset: {x: 10, y: 65},
                         type: 'danger'// jscs:ignore requireCamelCaseOrUpperCaseIdentifiers
                     });
 
